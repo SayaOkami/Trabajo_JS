@@ -9,10 +9,6 @@
     <link rel="icon" href="IMG/icon.png">
 </head>
 <body>
-
-
-
-    <script src="js/Script.js"></script>
     
 </body>
 </html>
