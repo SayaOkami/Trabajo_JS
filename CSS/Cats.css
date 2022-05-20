@@ -42,3 +42,27 @@ body{
     color: rgb(87, 171, 255);
     font-family: Quicksand;
 }
+
+/* Inventario */
+#equipo{
+    background-color: rgb(255, 158, 242);
+
+    height: 120px;
+    width: 400px;
+
+    position: absolute;
+    bottom: 0px;
+
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 15px;
+    border-radius: 10px;
+}
+.espacios{
+    background-color: rgb(187, 71, 172);
+    height: 100px;
+    width: 100px;
+    margin: 5px;
+
+    border-radius: 10px;
+}
