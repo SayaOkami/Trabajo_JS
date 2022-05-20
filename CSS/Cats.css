@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Quicksand ;
+    src: url(../font/Quicksand-Bold.otf);
+}
+body{
+    border: 0;
+    background-color: rgb(198, 249, 255);
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around; 
+    align-items: center;
+}
+
+#title{
+    margin-top: 200px;
+    font-size: 50px;
+    color: rgb(87, 107, 255);
+    /* Añadir reborde al texto */
+    -webkit-text-stroke: .8px rgb(0, 0, 0);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Botón para volver al inicio */
+#back{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(255, 201, 236);
+    height: 70px;
+    width: 170px;
+    border-end-end-radius: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    
+    font-size: 50px;
+    text-decoration: none;
+    color: rgb(87, 171, 255);
+    font-family: Quicksand;
+}

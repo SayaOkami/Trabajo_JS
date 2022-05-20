@@ -3,7 +3,9 @@
     src: url(../font/Quicksand-Bold.otf);
 }
 body{
+    border: 0;
     background-color: rgb(222, 184, 255);
+    /* height: 100vh; */
     display: flex;
     flex-direction: column;
 
@@ -33,9 +35,7 @@ body{
 
     border-radius: 10px ;
     border: 3px solid blueviolet;
-}
 
-.gamesbtn a{
     font-size: 40px;
     text-decoration: none;
     color: blueviolet;
