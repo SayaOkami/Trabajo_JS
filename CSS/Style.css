@@ -20,23 +20,23 @@ body{
 
 #title{
     color: aliceblue;
-    font-size: 70px;
+    font-size: 100px;
     font-family: Quicksand ;
 }
 
-.gamesbtn{
+#gamebtn{
     display: flex;
     align-items: center ;
     justify-content: center;
-    height: 60px;
-    width: 300px;
-    background-color: rgb(189, 255, 233);
+    height: 100px;
+    width: 400px;
+    background-color: rgb(255, 238, 207);
     margin-top: 30px;
 
     border-radius: 10px ;
     border: 3px solid blueviolet;
 
-    font-size: 40px;
+    font-size: 60px;
     text-decoration: none;
     color: blueviolet;
 }

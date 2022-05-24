@@ -13,13 +13,31 @@ body{
     align-items: center;
 }
 
-#title{
+
+/* Textos */
+
+#texto{
     margin-top: 200px;
     font-size: 50px;
     color: rgb(87, 107, 255);
     /* Añadir reborde al texto */
     -webkit-text-stroke: .8px rgb(0, 0, 0);
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+#boton{
+    height: 70px;
+    width: 200px;
+    color: white;
+    font-size: 30px;
+    background-color: rgb(211, 51, 110);
+    border: solid 2px rgb(177, 0, 59);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#boton:hover{
+    transform: scale(1.1);
 }
 
 /* Botón para volver al inicio */
@@ -58,11 +76,124 @@ body{
     padding-top: 15px;
     border-radius: 10px;
 }
-.espacios{
+#espacio{
+    position: absolute;
+    z-index: 0;
     background-color: rgb(187, 71, 172);
     height: 100px;
-    width: 100px;
+    width: 350px;
     margin: 5px;
 
     border-radius: 10px;
 }
+
+/* Mochila */
+
+#mochila{
+    height: 400px;
+    margin-top: 200px;
+    cursor: pointer;
+}
+
+#mochila:hover{
+    transform: scale(1.1);
+}
+
+#espaciomochila{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 210px;
+    width: 160px;
+}
+
+/* INVENTARIO */
+
+#interiorMochila{
+    background-color: rgb(255, 154, 238);
+    height: 600px;
+    width: 600px;
+    margin-top: 1000px;
+    padding: 20px;
+
+    position: absolute;
+    border-radius: 10px;
+    z-index: 200;
+}
+
+/* Compra */
+
+#compra{
+    position: absolute;
+    top: 400px;
+    width: 900px;
+    height: 600px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#compra p{
+    position: absolute;
+    font-size: 35px;
+    font-family: quicksand;
+}
+
+#dinero{
+    position: absolute;
+    top: -50px;
+    height: 50px ;
+    width: 100px;
+    font-size: 40px;
+    font-family: quicksand;
+    background-color: aquamarine;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comida{
+    z-index: 20;
+    height: 180px;
+    margin: 10px;
+    cursor: pointer;
+}
+
+.comida:hover{
+    transform: scale(1.1);
+}
+
+/* Cats */
+
+#cats{
+    position: absolute;
+    top: 400px;
+    width: 900px;
+    height: 500px;
+    background-color: rgb(228, 197, 255);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+#cats p{
+    position: absolute;
+    top: 0;
+    font-size: 30px;
+    font-family: quicksand;
+    text-align: center;
+}
+
+.cat{
+    height: 180px;
+    margin-top: 100px;
+}
+

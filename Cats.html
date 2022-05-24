@@ -10,25 +10,60 @@
 </head>
 <body>
 
-    <h1 id="title" > Coge algo para el camino </h1>
+    <!-- Textos y botones -->
+    <h1 id="texto" > ¡No olvides la mochila antes de irte! </h1>
 
     <a id="back" href="index.html"> Back </a>
 
+    <button id="boton"> Let's Go! </button>
+
+    <!-- inventario -->
+
     <div id="equipo">
         
-        <div class="espacios" id="espacio1">
-
-        </div>
-
-        <div class="espacios" id="espacio2">
-
-        </div>
-
-        <div class="espacios" id="espacio3">
-
-        </div>
+        <div id="espacio"> </div>
+        
     </div>
+
+    <!-- Comida -->
     
+    <div id="compra">
+        <div id="dinero"> 90$ </div>
+
+        <p> Cada item cuesta 30$, ¡Piensa bien tu elección! </p>
+        <img class="comida" id="fresa" src="IMG/fresapng.png" alt="Fresa">
+        <img class="comida" id="muslo" src="IMG/muslo.png" alt="Muslo">
+        <img class="comida" id="pan" src="IMG/pan.png" alt="Pan">
+        <img class="comida" id="pescado" src="IMG/Pescado.png" alt="Pescado">
+        <img class="comida" id="pizza" src="IMG/pizza.png" alt="Pizza">
+        <img class="comida" id="raton" src="IMG/raton.png" alt="Ratón">
+        <img class="comida" id="sandia" src="IMG/sandia.png" alt="Sandía">
+        <img class="comida" id="sandwich" src="IMG/Sandwich.png" alt="Sandwich">
+    </div>
+
+    <!-- gatitos -->
+
+    <div id="cats">
+        <p> Equípate comida e intenta ganarte su confianza, <br> 
+            ten en cuenta que cada gato solo aceptará una en concreto, <br>
+            cuando hayas terminado, ¡Vámonos! </p>
+
+        <img id="black" class="cat" src="img/Blackcat.png" alt="Black cat">
+        <img id="brown" class="cat" src="img/browncat.png" alt="Brown cat">
+        <img id="white" class="cat" src="img/whitecat.png" alt="white cat">
+    </div>
+
+    <!-- mochila -->
+    <img id="mochila" src="IMG/backpack.png" alt="Mochila">
+
+    <div id="espaciomochila"></div>
+
+    <div id="interiorMochila"> </div>
+    
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="js/Cats.js"></script>
 </body>
 </html>
