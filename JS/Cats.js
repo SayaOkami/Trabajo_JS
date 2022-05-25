@@ -221,7 +221,7 @@ $("#boton").click(function(){
 
         $("#boton").css({
             "position" : "absolute" ,
-            "top" : "1030px"
+            "bottom" : "10px"
         })
 
         $("#compra").show()
@@ -230,6 +230,11 @@ $("#boton").click(function(){
 
     // segundo nivel
     } else if(boton == "segundo"){
+
+        $("#boton").css({
+            "bottom" : "150px"
+        })
+
         $("#texto").text("¡Mira que gatitos mas lindos!")
 
         $("#compra").hide()
@@ -272,7 +277,7 @@ $("#boton").click(function(){
             $("#peleas").show()
 
             $("#boton").css({
-                "top" : "1090px",
+                "bottom" : "150px",
                 "z-index" : "30"
             })
 
@@ -351,22 +356,37 @@ $("#boton").click(function(){
 
         // Final
         if( vida == 3 ){
-            $("lost").text("¡Perfecto! Has conseguido llegar a casa sano y salvo, es momento de celebrarlo ;3")
+            $("#lost").css({ "background-color" : "rgb(194, 94, 252)"})
+            $("#lost").text("¡Perfecto! Has conseguido llegar a casa sano y salvo, además ahora tienes tres gatitos monos , es momento de celebrarlo ;3")
             $("body").css({ "background-color" : "rgb(255, 198, 239)"})
-            
+
+            $("#casa").show()
 
         } else if(vida == 2) {
-
+            $("#lost").css({
+                "background-color" : "rgb(217, 121, 255)" ,
+                "font-size" : "55px" })
+            $("#lost").text("No está mal, has llegado a casa con un brazo menos pero te curarás dentro de poco, ademas tienes dos gatitos para hacerte compañía! :)")
             $("body").css({ "background-color" : "rgb(200, 255, 198)"})
 
-        } else if(vida == 1) {
+            $("#casa").show()
+            $("#pive").attr("src" , "img/arm.png")
 
-            
+        } else if(vida == 1) {
+            $("#lost").css({
+                "background-color" : "rgb(255, 166, 93)" ,
+                "font-size" : "55px" })
+
+            $("#lost").text("Bueno, al menos has llegado a casa, ahora solo tendras que rehabilitarte por unos cuantos meses :/, pero... mira que mono el gatito <3")
             $("body").css({ "background-color" : "rgb(255, 224, 198)"})
+
+            $("#casa").show()
+            $("#pive").attr("src" , "img/wheelchair.png")
 
         }else if(vida == 0) {
 
             $("#dead").show()
+
         }
     }
     
