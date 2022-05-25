@@ -4,6 +4,9 @@ let mochilaAbierta = false
 let huecomochila = false
 let boton = "primero"
 let comidacomprada = false
+let gatos = 0
+let pelea = 1
+let vida = 3
 
 precioComida = 30
 
@@ -11,6 +14,13 @@ $("#cats").hide()
 $("#interiorMochila").hide()
 $("#boton").hide()
 $("#compra").hide()
+$("#equipo").hide()
+$("#ganaste").hide()
+$("#perdiste").hide()
+$("#peleas").hide()
+$("#pausa").hide()
+$("#final").hide()
+
 
 // Funciones-------------------------------------------------
 
@@ -29,51 +39,16 @@ $("#mochila").click(function(){
     $("#boton").show()
     huecomochila = true
 
+    // Abrir inventario
     } else if(huecomochila == true){
 
-    }
-    
-
-})
-
-// Abrir inventario
-
-$("#mochila").dblclick(function(){
-
-    if(mochilaAbierta == false){
-        $("#interiorMochila").show()
-        mochilaAbierta = true;
-    }else {
-        $("#interiorMochila").hide()
-        mochilaAbierta = false
-    }
-
-})
-
-// Pasar a la sig pantalla
-
-$("#boton").click(function(){
-
-    if(boton == "primero"){
-        $("#texto").text($("#texto").text().replace("Vamos a por algo de comida" , "Compra algo de comida para el camino y vámonos"))
-
-        $("#boton").css({
-            "position" : "absolute" ,
-            "top" : "1030px"
-        })
-
-        $("#compra").show()
-
-        boton = "segundo"
-
-    } else if(boton == "segundo"){
-        $("#texto").text($("#texto").text().replace("Compra algo de comida para el camino y vámonos" , "¡Mira que gatitos mas lindos!"))
-
-        $("#compra").hide()
-
-        $("#cats").show()
-
-        comidacomprada = true
+        if(mochilaAbierta == false){
+            $("#interiorMochila").show()
+            mochilaAbierta = true;
+        }else {
+            $("#interiorMochila").hide()
+            mochilaAbierta = false
+        }
     }
     
 
@@ -103,6 +78,8 @@ $(".comida").click(function(){
 
 })
 
+// Cambio de gato negro segun comida
+
 $("#black").droppable({
 
     drop:function( event, ui){
@@ -113,10 +90,11 @@ $("#black").droppable({
             $("#black").attr("src" , "img/blackcatmad.png")
         }
 
-        // return !dropped;
     }
 
 })
+
+// Cambio de gato marron segun comida
 
 $("#brown").droppable({
 
@@ -131,6 +109,8 @@ $("#brown").droppable({
 
 })
 
+// Cambio de gato blanco segun comida
+
 $("#white").droppable({
 
     drop:function( event, ui){
@@ -141,5 +121,254 @@ $("#white").droppable({
             $("#white").attr("src" , "img/whitecatmad.png")
         }
     }
+
+})
+
+// Peleas
+
+    $("#fight").click(function(){
+
+        if(pelea == 1){
+            // Primera pelea
+            if(gatos >= 1){
+                $("#ganaste").show()
+
+                $("#guia").text("Parece que un gato se unió a la pelea y conseguimos vencer, ¡Muchas gracias michi!")
+            } else {
+                $("#perdiste").show()
+                $("#heart1").hide()
+
+                vida--
+                
+                $("#guia").text("Esperemos que no fuera igual de venenosa que de fuerte :(")
+            }
+
+            $("#boton").show()
+            $("#fight").hide()
+
+            pelea = 2
+
+            $("#texto").text($("#texto").text().replace("¡Oh no, es una serpiente!" , "Sigamos hacia delante"))
+        
+            
+        } else if(pelea == 2){
+            // Segunda pelea
+
+            if(gatos >= 2){
+                $("#ganaste").show()
+                $("#ganaste").text(" ¡Victoria! Vaya gatitos peleones jsjsjs")
+
+                $("#guia").text("¡Mira! Gracias a esos dos gatos que te ayudaron hemos conseguido vencerle :)")
+            } else {
+                $("#perdiste").show()
+                $("#heart2").hide()
+
+                vida--
+
+                $("#perdiste").text("Has perdido, pero este Aguila te ha dejado bastante tocado...")
+
+                $("#guia").text("No te preocupes, ya queda poco para llegar, intentemos no hacernos más daño :)")
+            }
+
+            $("#boton").show()
+            $("#fight").hide()
+
+            pelea = 3
+
+            $("#texto").text($("#texto").text().replace("¿Un Águila?" , "Vamonos... Espera..."))
+
+
+        
+        } else if(pelea == 3){
+            // Tercera pelea
+
+            if(gatos >= 3){
+                $("#ganaste").show()
+                $("#ganaste").text("Bien hecho! Vámonos a casa!")
+
+                $("#guia").text("¡Se han unido los tres gatos! ¡Os amamos michis! No hubieramos ganado sin vosotros ^^")
+            
+            } else {
+
+                vida--
+                $("#perdiste").show()
+                $("#perdiste").text("Has perdido. Podrás llegar a casa?")
+                $("#heart3").hide()
+                $("#guia").text( "OH NO ese lobo era demasiado fuerte, ¿Estas Bien?" )
+                
+            }
+
+            $("#boton").show()
+            $("#fight").hide()
+
+            $("#texto").css({"opacity" : "0"})
+
+            
+            $("#boton").css({
+                "top" : "150px" ,
+                "width" : "400px"
+            })
+        }
+
+    })
+
+// Pasar a la sig pantalla
+
+$("#boton").click(function(){
+
+    if(boton == "primero"){
+        $("#texto").text("Compra algo de comida para el camino y vámonos")
+
+        $("#boton").css({
+            "position" : "absolute" ,
+            "top" : "1030px"
+        })
+
+        $("#compra").show()
+
+        boton = "segundo"
+
+    // segundo nivel
+    } else if(boton == "segundo"){
+        $("#texto").text("¡Mira que gatitos mas lindos!")
+
+        $("#compra").hide()
+
+        $("#equipo").show()
+
+        $("#cats").show()
+
+        comidacomprada = true
+
+        boton = "tercero"
+
+    // primer boss
+    } else if(boton == "tercero"){
+        $("#texto").text("¡Oh no, es una serpiente!")
+
+        $(".comida").hide()
+
+        $("#cats").hide()
+
+            // Detectar cuántos gatos tengo
+
+            if($("#black").attr("src") == "img/blackcateat.png"){
+                gatos++ 
+                $("#black").addClass("catsin")
+                $("#black").appendTo($("#espacio"))
+
+            }
+            if($("#brown").attr("src") == "img/browncateat.png"){
+                gatos++
+                $("#brown").addClass("catsin")
+                $("#brown").appendTo($("#espacio"))
+            }
+            if($("#white").attr("src") == "img/whitecateat.png"){
+                gatos++
+                $("#white").addClass("catsin")
+                $("#white").appendTo($("#espacio"))
+            }
+
+            $("#peleas").show()
+
+            $("#boton").css({
+                "top" : "1090px",
+                "z-index" : "30"
+            })
+
+        $("#boton").text($("#boton").text().replace("Let's Go!" , "Sigamos"))
+
+        $("#boton").hide()
+
+        boton = "cuarto"
+
+    // intermission
+    } else if( boton == "cuarto" ){
+
+        $("#ganaste").hide()
+        $("#perdiste").hide()
+        $("#boss").hide()
+        $("#boss").attr("src" , "img/aguila.png")
+        $("#guia").hide()
+
+        $("#pausa").show()
+        $("#texto").css({"opacity" : "0"})
+
+        $("#boton").text($("#boton").text().replace("Sigamos" , "Mirar allí"))
+
+        boton = "quinto"
+
+    // Segundo Boss
+    } else if( boton == "quinto") {
+
+        $("#texto").text($("#texto").text().replace("Sigamos hacia delante" , "¿Un Águila?" ))
+
+        $("#pausa").hide()
+        $("#texto").css({"opacity" : "1"})
+        $("#boss").show()
+        $("#guia").show()
+
+        $("#guia").text("Parece que este Águila es muy agresiva, espero que podamos vencerla...")
+
+        $("#boss").css({ "height" : "400px", "margin-top" : "200px" })
+
+        $("#fight").show()
+
+        $("#boton").hide()
+        $("#boton").text("¿Qué?")
+
+        boton = "sexto"
+
+    // tercer boss
+    } else if( boton == "sexto" ){
+
+        $("#ganaste").hide()
+        $("#perdiste").hide()
+        $("#texto").text("¡¿Otro?!")
+        $("#boss").attr("src" , "img/wolf.png")
+
+        $("#guia").text("Por favor, ten mucho cuidado, ¡debemos llegar a casa!")
+    
+        $("#fight").show()
+
+        $("#boton").hide()
+        $("#boton").text("Finalizar aventura")
+
+        boton = "septimo"
+
+// Pantalla final
+    } else if( boton == "septimo" ){
+
+        $("#mochila").hide()
+        $("#peleas").hide()
+        $("#equipo").hide()
+        $("#final").show()
+        $("#casa").hide()
+        $("#boton").hide()
+        $("#dead").hide()
+
+        $("#texto").css({"margin-top" : "60px"})
+
+        // Final
+        if( vida == 3 ){
+            $("lost").text("¡Perfecto! Has conseguido llegar a casa sano y salvo, es momento de celebrarlo ;3")
+            $("body").css({ "background-color" : "rgb(255, 198, 239)"})
+            
+
+        } else if(vida == 2) {
+
+            $("body").css({ "background-color" : "rgb(200, 255, 198)"})
+
+        } else if(vida == 1) {
+
+            
+            $("body").css({ "background-color" : "rgb(255, 224, 198)"})
+
+        }else if(vida == 0) {
+
+            $("#dead").show()
+        }
+    }
+    
 
 })
