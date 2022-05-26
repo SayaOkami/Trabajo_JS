@@ -20,6 +20,7 @@ $("#perdiste").hide()
 $("#peleas").hide()
 $("#pausa").hide()
 $("#final").hide()
+$("#pista").hide()
 
 
 // Funciones-------------------------------------------------
@@ -54,6 +55,11 @@ $("#mochila").click(function(){
 
 })
 
+$("#cerrar").click(function(){
+    $("#interiorMochila").hide()
+    mochilaAbierta = true;
+})
+
 // Comprar y equipar comida
 
 $(".comida").click(function(){
@@ -85,9 +91,13 @@ $("#black").droppable({
     drop:function( event, ui){
         if($(ui.draggable).attr("id") == "raton" ){
             $("#black").attr("src" , "img/blackcateat.png")
+            $("#pista").text("YASSSSS")
         }
         else if($(ui.draggable).attr("id") != "raton" ){
             $("#black").attr("src" , "img/blackcatmad.png")
+            $("#pista").show()
+            $("#pista").text("IUG ¡Dónde está mi Jerry?!")
+
         }
 
     }
@@ -101,9 +111,12 @@ $("#brown").droppable({
     drop:function( event, ui){
         if($(ui.draggable).attr("id") == "muslo" ){
             $("#brown").attr("src" , "img/browncateat.png")
+            $("#pista").text("Así sí, ñam ñam")
         }
         else if($(ui.draggable).attr("id") != "muslo" ){
             $("#brown").attr("src" , "img/browncatmad.png")
+            $("#pista").show()
+            $("#pista").text("Puag , yo soy más de granja :/")
         }
     }
 
@@ -116,9 +129,12 @@ $("#white").droppable({
     drop:function( event, ui){
         if($(ui.draggable).attr("id") == "pescado" ){
             $("#white").attr("src" , "img/whitecateat.png")
+            $("#pista").text("WIII, ¡muchas gracias!")
         }
         else if($(ui.draggable).attr("id") != "pescado" ){
             $("#white").attr("src" , "img/whitecatmad.png")
+            $("#pista").show()
+            $("#pista").text("Nooo! Algo más marino :(")
         }
     }
 
@@ -249,6 +265,11 @@ $("#boton").click(function(){
 
     // primer boss
     } else if(boton == "tercero"){
+
+        $("#interiorMochila").hide()
+
+        $("#mochila").hide()
+
         $("#texto").text("¡Oh no, es una serpiente!")
 
         $(".comida").hide()
